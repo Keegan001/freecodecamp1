@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />  
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <application
-        android:label="freecodecamp1"
+        android:label="coolcontacts"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

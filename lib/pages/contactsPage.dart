@@ -63,7 +63,6 @@ class _contactsPageState extends State<contactsPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
-          // direction: Axis.vertical,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Text(
@@ -99,10 +98,7 @@ class _contactsPageState extends State<contactsPage> {
                                       .toString() ??
                                   '');
                             },
-                          )
-                          //Text(
-                          //     contacts?[index].phones?.toString() ?? ''),
-                          );
+                          ));
                     },
                   );
                 }
@@ -110,28 +106,6 @@ class _contactsPageState extends State<contactsPage> {
               },
               future: importContacts(),
             )
-            // Flexible(
-            //    print(snapshot);
-            // if (snapshot.connectionState == ConnectionState.waiting) {
-            //   return const Center(
-            //       child: const CircularProgressIndicator.adaptive());
-            // }
-            // if (snapshot.hasError) {
-            //   return Text(snapshot.error.toString());
-            // }
-            //   flex: 9,
-            //   child: ListView.builder(
-            //     shrinkWrap: true,
-            //     itemCount: contactlist.length,
-            //     itemBuilder: (context, index) {
-            //       Contact contact = contactlist[index];
-            //       return ListTile(
-            //         title: Text(contact.displayName.toString()),
-            //         subtitle: Text(contact.phones?[0].value.toString() ?? ''),
-            //       );
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

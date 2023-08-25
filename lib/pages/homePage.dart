@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-// import 'package:freecodecamp1/pages/info.dart';
+import 'package:freecodecamp1/pages/info.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 class homePage extends StatelessWidget {
@@ -10,7 +10,40 @@ class homePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: appBar(),
+      appBar: AppBar(
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const info()),
+            );
+          },
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SvgPicture.asset(
+              'assets/images/three-dots-svgrepo-com.svg',
+              height: 22,
+              width: 22,
+            ),
+          ),
+        ),
+      ),
       body: ListView(
         children: [
           ProfilePictureFlex(),
@@ -182,44 +215,6 @@ class homePage extends StatelessWidget {
             child: const Text('Reset'),
           ),
         ],
-      ),
-    );
-  }
-
-//AppBar
-  AppBar appBar() {
-    return AppBar(
-      title: const Text(
-        'Profile',
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      backgroundColor: Colors.white,
-      centerTitle: true,
-      elevation: 0.0,
-      leading: GestureDetector(
-        onTap: () {
-          // Navigator.push<void>(
-
-          //     context,
-          //      MaterialPageRoute<void >(builder: (context) => const info()));
-        },
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: SvgPicture.asset(
-            'assets/images/three-dots-svgrepo-com.svg',
-            height: 22,
-            width: 22,
-          ),
-        ),
       ),
     );
   }

@@ -3,8 +3,9 @@ import 'package:freecodecamp1/pages/contactsPage.dart';
 import 'package:freecodecamp1/pages/homePage.dart';
 import 'package:freecodecamp1/pages/weatherPage.dart';
 
+
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,24 +13,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: mainHomePage(),
+      home: MainHomePage(),
     );
   }
 }
 
-class mainHomePage extends StatefulWidget {
-  const mainHomePage({super.key});
+class MainHomePage extends StatefulWidget {
+  const MainHomePage({super.key});
 
   @override
-  State<mainHomePage> createState() => _mainHomePageState();
+  State<MainHomePage> createState() => _MainHomePageState();
 }
 
 int currentindex = 0;
 PageController pC = PageController(initialPage: 0);
 
-class _mainHomePageState extends State<mainHomePage> {
+class _MainHomePageState extends State<MainHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,15 +51,15 @@ class _mainHomePageState extends State<mainHomePage> {
         selectedIndex: currentindex,
         elevation: 0.0,
         height: 80,
-        backgroundColor: Color.fromARGB(255, 173, 140, 128),
+        backgroundColor: const Color.fromARGB(255, 173, 140, 128),
         onDestinationSelected: (value) {
           pC.animateToPage(
             value,
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             curve: Curves.decelerate,
           );
         },
-        destinations: [
+        destinations: const [
           NavigationDestination(
             icon: Icon(Icons.person_2_outlined),
             label: 'Profile',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:freecodecamp1/pages/info.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 
 class homePage extends StatelessWidget {
   const homePage({super.key});
@@ -7,9 +9,9 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       appBar: appBar(),
-      body: Column(
+      body: ListView(
         children: [
           ProfilePictureFlex(),
           MiddleFlexBody(),
@@ -48,10 +50,10 @@ class homePage extends StatelessWidget {
     return Flexible(
       flex: 3,
       child: Container(
-        margin: EdgeInsets.only(top: 60, left: 40, right: 40),
+        margin: const EdgeInsets.only(top: 60, left: 40, right: 40),
         child: Column(
           children: [
-            Align(
+            const Align(
               alignment: Alignment.topLeft,
               child: Text(
                 'Name',
@@ -68,12 +70,12 @@ class homePage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'enter your name',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontStyle: FontStyle.italic,
                     ),
                     filled: true,
-                    fillColor: Color.fromARGB(255, 233, 237, 240),
-                    contentPadding: EdgeInsets.all(15),
+                    fillColor: const Color.fromARGB(255, 233, 237, 240),
+                    contentPadding: const EdgeInsets.all(15),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -82,8 +84,8 @@ class homePage extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 10.0),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -102,12 +104,12 @@ class homePage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'enter your phone number',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontStyle: FontStyle.italic,
                     ),
                     filled: true,
-                    fillColor: Color.fromARGB(255, 233, 237, 240),
-                    contentPadding: EdgeInsets.all(15),
+                    fillColor: const Color.fromARGB(255, 233, 237, 240),
+                    contentPadding: const EdgeInsets.all(15),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -116,8 +118,8 @@ class homePage extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+            const Padding(
+              padding: EdgeInsets.only(top: 10.0),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -136,12 +138,12 @@ class homePage extends StatelessWidget {
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'enter your date of birth',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontStyle: FontStyle.italic,
                     ),
                     filled: true,
-                    fillColor: Color.fromARGB(255, 233, 237, 240),
-                    contentPadding: EdgeInsets.all(15),
+                    fillColor: const Color.fromARGB(255, 233, 237, 240),
+                    contentPadding: const EdgeInsets.all(15),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide.none,
@@ -167,17 +169,17 @@ class homePage extends StatelessWidget {
         children: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 173, 140, 128),
+              backgroundColor: const Color.fromARGB(255, 173, 140, 128),
             ),
             onPressed: () {},
-            child: Text('Save'),
+            child: const Text('Save'),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 173, 140, 128),
+              backgroundColor: const Color.fromARGB(255, 173, 140, 128),
             ),
             onPressed: () {},
-            child: Text('Reset'),
+            child: const Text('Reset'),
           ),
         ],
       ),
@@ -199,7 +201,12 @@ class homePage extends StatelessWidget {
       centerTitle: true,
       elevation: 0.0,
       leading: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          // Navigator.push<void>(
+
+          //     context,
+          //      MaterialPageRoute<void >(builder: (context) => const info()));
+        },
         child: Container(
           margin: const EdgeInsets.all(10),
           alignment: Alignment.center,

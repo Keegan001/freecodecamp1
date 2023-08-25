@@ -20,21 +20,19 @@ class info extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 100, left: 40, right: 40),
-        child: Column(
+        margin: const EdgeInsets.only(top: 100, left: 40, right: 40),
+        child: const Column(
           children: [
             Align(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.center,
               child: Text.rich(
                 TextSpan(
-                  text: 'Hello, My name Is Divyam Jain. I made this App. The link to the code is ',
-                  
+                  text:
+                      'Hello, My name Is Divyam Jain. I made this App. The link to the code is ',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
-                
               ),
             ),
           ],
@@ -43,3 +41,4 @@ class info extends StatelessWidget {
     );
   }
 }
+//https://github.com/Keegan001/freecodecamp1

@@ -3,7 +3,6 @@ import 'package:freecodecamp1/pages/contactsPage.dart';
 import 'package:freecodecamp1/pages/homePage.dart';
 import 'package:freecodecamp1/pages/weatherPage.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -35,6 +34,7 @@ class _MainHomePageState extends State<MainHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: ScrollPhysics(),
         controller: pC,
         onPageChanged: (value) {
           setState(() {
@@ -51,7 +51,7 @@ class _MainHomePageState extends State<MainHomePage> {
         selectedIndex: currentindex,
         elevation: 0.0,
         height: 80,
-        backgroundColor: const Color.fromARGB(255, 173, 140, 128),
+        backgroundColor: const Color.fromARGB(255, 245, 236, 232),
         onDestinationSelected: (value) {
           pC.animateToPage(
             value,

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freecodecamp1/pages/info.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class homePage extends StatelessWidget {
-  const homePage({super.key});
+class homePage extends StatefulWidget {
+  homePage({super.key});
 
+  @override
+  State<homePage> createState() => _homePageState();
+}
+
+class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +83,25 @@ class homePage extends StatelessWidget {
     );
   }
 
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
+  initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    loadSavedData();
+  }
+
+  final _nameController = TextEditingController();
+
+  final _phone_numberController = TextEditingController();
+
+  final _date_of_birthController = TextEditingController();
+
+  late SharedPreferences prefs;
+
 //Main Body
   Flexible MiddleFlexBody() {
     return Flexible(
@@ -101,6 +125,7 @@ class homePage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: TextField(
+                  controller: _nameController,
                   decoration: InputDecoration(
                     hintText: 'enter your name',
                     hintStyle: const TextStyle(
@@ -135,6 +160,7 @@ class homePage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: TextField(
+                  controller: _phone_numberController,
                   decoration: InputDecoration(
                     hintText: 'enter your phone number',
                     hintStyle: const TextStyle(
@@ -169,6 +195,7 @@ class homePage extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: TextField(
+                  controller: _date_of_birthController,
                   decoration: InputDecoration(
                     hintText: 'enter your date of birth',
                     hintStyle: const TextStyle(
@@ -192,6 +219,16 @@ class homePage extends StatelessWidget {
     );
   }
 
+  void loadSavedData() {
+    String name = prefs.getString('name') ?? '';
+    String phoneNumber = prefs.getString('phone_number') ?? '';
+    String dateOfBirth = prefs.getString('date_of_birth') ?? '';
+
+    _nameController.text = name;
+    _phone_numberController.text = phoneNumber;
+    _date_of_birthController.text = dateOfBirth;
+  }
+
 //Home Buttons
   Padding HomeButtons() {
     return Padding(
@@ -204,14 +241,28 @@ class homePage extends StatelessWidget {
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 173, 140, 128),
             ),
-            onPressed: () {},
+            onPressed: () async {
+              String name = _nameController.text;
+              String phone_number = _phone_numberController.text;
+              String date_of_birth = _date_of_birthController.text;
+
+              //Save the data in shared preferences
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+              await prefs.setString('name', name);
+              await prefs.setString('phone_number', phone_number);
+              await prefs.setString('date_of_birth', date_of_birth);
+            },
             child: const Text('Save'),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 173, 140, 128),
             ),
-            onPressed: () {},
+            onPressed: () {
+              _nameController.clear();
+              _phone_numberController.clear();
+              _date_of_birthController.clear();
+            },
             child: const Text('Reset'),
           ),
         ],

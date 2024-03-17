@@ -26,7 +26,7 @@ class _weatherPageState extends State<weatherPage> {
       String cityName = 'Mumbai';
       final res = await http.get(
         Uri.parse(
-            'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=e14f204ac891b148abfe5ce16f4bfda1'),
+            'https://api.openweathermap.org/data/2.5/forecast?q=$cityName&APPID=APPID'),
       );
       final data = jsonDecode(res.body);
       if (data['cod'] != '200') {
